@@ -1,6 +1,6 @@
 url: http://psconf.eu
 baseurl: ""
-title: PowerShell Conference Europe
+title: PowerShell Conference EU
 
 gems:
   - octopress-multilingual
