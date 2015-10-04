@@ -24,6 +24,7 @@
     <!-- Custom Fonts -->
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href='http://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Halant' rel='stylesheet' type='text/css'>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -54,13 +55,13 @@
             
             <li><a data-scroll href="#about">Über</a></li>
             
-            <li><a data-scroll href="#speakers">Speakers</a></li>
+            <li><a data-scroll href="#speakers">Referenten</a></li>
             
-            <li><a data-scroll href="#schedule">Schedule</a></li>
+            <li><a data-scroll href="#schedule">Agenda</a></li>
             
             <li><a data-scroll href="#register">Registrieren</a></li>
             
-            <li><a data-scroll href="#venue">Venue</a></li>
+            <li><a data-scroll href="#venue">Veranstaltungsort</a></li>
             
             <!-- The Legal link as well as the language switcher are handled separately -->
             
@@ -103,7 +104,7 @@
       #my-soon-counter .soon-reflection {background-color:#db4b3e;background-image:linear-gradient(#db4b3e 25%,rgba(219,75,62,0));}
       #my-soon-counter {background-position:top;}
       #my-soon-counter {color:#030303;color:rgba(3,3,3,0.25);}
-      #my-soon-counter {font-family:"Oswald",sans-serif;font-weight:normal;font-style:normal;font-size: 34px;}
+      #my-soon-counter {font-family:"Oswald",sans-serif;font-weight:normal;font-style:normal;font-size: 36px;}
     </style>
     <div class="soon" id="my-soon-counter"
       data-due="2016-04-20T09:00"
@@ -123,7 +124,7 @@
 </div>
 <section id="about">
 	<div class="container">
-		<h2>About</h2>
+		<h2>Über</h2>
 		<p>Welcome to the next great European PowerShell event!</p>
 		<p>After the discontinuation of the PowerShell Summit in Europe, we have partnered with powershell.de to be able to still
 			have a European PowerShell event. We are still working on this site, so stay tuned for more information.
@@ -132,7 +133,7 @@
 </section>
 <section id="speakers">
 <div class="container">
-	<h2>Speakers<small> - call for speakers</small></h2>
+	<h2>Referenten<small> - Suche nach Rednern</small></h2>
 	<p>
 		If you wish to speak at PowerShell Conference Europe 2016, please send us a session abstract as soon as possible.
 		For sessions to be delivered in German, please email a session abstract to 
@@ -148,42 +149,45 @@
 </section>
 <section id="schedule">
 	<div class="container">
-		<h2>Schedule</h2>
-		<div class="table-responsive">
+		<h2>Agenda</h2>
+		<!--<div class="table-responsive">-->
+		<div class="table">
 			<table class="table table-hover table-bordered">
 				<thead>
-					<th>Time</th>
-					<th>Track #1: English</th>
-					<th>Track #2: German</th>
+					<th>Zeit</th>
+					<th>Track #1: Englisch</th>
+					<th>Track #2: Deutsch</th>
 				</thead>
 				<tbody>
+					
 					<tr>
 						<td>09:00 - 09:45</td>
-						<td>Keynote - Tobias<br><br>
+						<td>
+							Keynote - Tobias
+							<br><br>
 							Tobias will officially open the conference and give some pratical information to all participants.
 						</td>
-						<td>Keynote - Tobias<br><br>
+						<td>
+							Keynote - Tobias #2
+							<br><br>
 							Tobias will officially open the conference and give some pratical information to all participants.
 						</td>
 					</tr>
+					
 					<tr>
 						<td>10:00 - 10:45</td>
-						<td>Something<br><br>
-							Description of the session.
+						<td>
+							SessionName - SessionSpeaker
+							<br><br>
+							SessionDescription
 						</td>
-						<td>Something else<br><br>
-							Description of the session.
-						</td>
-					</tr>
-					<tr>
-						<td>11:00 - 11:45</td>
-						<td>Something<br><br>
-							Description of the session.
-						</td>
-						<td>Something else<br><br>
-							Description of the session.
+						<td>
+							SessionName - SessionSpeaker
+							<br><br>
+							SessionDescription
 						</td>
 					</tr>
+					
 				</tbody>
 			</table>
 		</div>
@@ -191,7 +195,9 @@
 </section>
 <section id="venue">
 	<div class="container">
-        <h2>Venue</h2>
+        <h2>Veranstaltungsort</h2>
+        <p>The conference will be held at the Hannover Congress Center. On day 1, we have the 'Beethoven Saal' for the keynote and one track. The second track will be held in the 'Blauer Saal'.</p>
+        <br>
         <div class="photogrid" data-layout="232">
             <img src="/img/tagungen_hannover_beethovensaal_1.jpg">
 			<img src="/img/tagungen_hannover_beethovensaal_2.jpg">
@@ -201,13 +207,11 @@
             <img src="/img/hotel-galerie-01.jpg">
             <img src="/img/hotel-galerie-02.jpg">
         </div>
-        <br>
-        <p>The conference will be held at the Hannover Congress Center. On day 1, we have the 'Beethoven Saal' for the keynote and one track. The second track will be held in the 'Blauer Saal'.</p>
     </div>
 </section>
 <section id="map">
 	<div class="container">
-		<h2>Map</h2>
+		<h2>Karte</h2>
 		<div class="embed-responsive embed-responsive-16by9">
 			<iframe class="embed-responsive-item" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2435.6920503373212!2d9.7691176!3d52.3760037!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b00b5af0dd0b79%3A0xbc2cad20ca00fdfe!2sHannover+Congress+Centrum!5e0!3m2!1sen!2sno!4v1443893712316"></iframe>
 		</div>
