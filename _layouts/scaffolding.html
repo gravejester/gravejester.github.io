@@ -25,7 +25,7 @@
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href='http://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Halant' rel='stylesheet' type='text/css'>
-
+        
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -33,9 +33,10 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body>
+  <body  id="page-top">
   
     <nav class="navbar navbar-inverse navbar-fixed-top">
+    <!--<nav class="navbar navbar-fixed-top">-->
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -46,7 +47,7 @@
           </button>
           <!-- Controlling whether the sitename is added to the navbar or not are done from _data/nav.yml -->
           {% if site.data.nav.showsitename == "true" %}
-            <a class="navbar-brand" href="#">{{ site.name }}</a>
+            <a class="navbar-brand" href="#page-top">{{ site.name }}</a>
           {% endif %}
         </div>
         <div id="navbar" class="collapse navbar-collapse">
@@ -57,10 +58,10 @@
             {% endfor %}
             <!-- The Legal link as well as the language switcher are handled separately -->
             {% if page.lang == 'en' %}
-            <li><a href="#" data-toggle="modal" data-target="#Legal">Legal</a></li>
+            <li><a href="#page-top" data-toggle="modal" data-target="#Legal">Legal</a></li>
             <li><a href="{{ "/de/" | prepend: site.baseurl }}">Deutsch</a></li>
             {% else %}
-            <li><a href="#" data-toggle="modal" data-target="#Legal">Impressum</a></li>
+            <li><a href="#page-top" data-toggle="modal" data-target="#Legal">Impressum</a></li>
             <li><a href="{{ "/" | prepend: site.baseurl }}">English</a></li>
             {% endif %}
           </ul>
@@ -68,10 +69,13 @@
       </div>
     </nav>
     
+    <!-- Scroll to top -->
+    <div class="back-to-top"><a data-scroll href="#page-top" class="text-muted"><span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span></a></div>
+    
     {% include {{page.lang}}/legal.html %}
     
     {{ content }}
-
+    
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -79,6 +83,8 @@
     <script src="{{ "/js/jquery.photoset-grid.min.js" | prepend: site.baseurl }}"></script>
     <script src="{{ "/js/smooth-scroll.min.js" | prepend: site.baseurl }}"></script>
     <script src="{{ "/js/soon.min.js" | prepend: site.baseurl }}"></script>
+    <script src="{{ "/js/validator.min.js" | prepend: site.baseurl }}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
     <script>
       // smoothscroll
       smoothScroll.init({
@@ -86,13 +92,58 @@
         easing: 'easeOutQuint', // Easing pattern to use
         updateURL: false, // Boolean. Whether or not to update the URL with the anchor hash on scroll
         offset: 0, // Integer. How far to offset the scrolling anchor location in pixels
-    });
+      });
 
       // photogrid
       $('.photogrid').photosetGrid({
         // Set the gutter between columns and rows
         gutter: '5px'
       });
+      
+      // Scroll to top
+      $(function(){
+        $(document).on( 'scroll', function(){
+          if ($(window).scrollTop() > 100) {
+            $('.back-to-top').addClass('show');
+          } else {
+            $('.back-to-top').removeClass('show');
+          }
+	     });
+      });
+      
+      var map;
+			
+			function initialize() {
+				var location = {lat: 52.3760037, lng: 9.7691176};
+				
+				var mapOptions = {
+					zoom: 17,
+					center: location,
+					mapTypeId: google.maps.MapTypeId.ROADMAP,
+					scrollwheel: false
+				};
+				
+				var map = new google.maps.Map(document.getElementById('venue-map'), mapOptions);
+				
+				var contentString = '<h2>Hannover Congress Centrum</h2><p>Theodor-Heuss-Platz 1-3<br>30175 Hannover<br>Germany</p><p>+49 511 81130</p><p><a href="http://www.hcc.de/">hcc.de</a></p><p><a href="https://www.google.no/maps/dir//Hannover+Congress+Centrum,+Theodor-Heuss-Platz+1-3,+30175+Hannover/@52.3760037,9.7691176,17z/data=!4m13!1m4!3m3!1s0x47b00b5af0dd0b79:0xbc2cad20ca00fdfe!2sHannover+Congress+Centrum!3b1!4m7!1m0!1m5!1m1!1s0x47b00b5af0dd0b79:0xbc2cad20ca00fdfe!2m2!1d9.7691176!2d52.3760037?hl=en">Directions</a></p>'
+				
+				var infowindow = new google.maps.InfoWindow({
+					content: contentString
+				});
+				
+				var marker = new google.maps.Marker({
+					position: location,
+					map: map,
+					animation: google.maps.Animation.DROP,
+					title: 'Hannover Congress Centrum'
+				});
+				
+				marker.addListener('click', function() {
+					infowindow.open(map, marker);
+				});
+			}
+			
+			google.maps.event.addDomListener(window, 'load', initialize);
     </script>
   </body>
 </html>

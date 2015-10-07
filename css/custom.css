@@ -4,30 +4,36 @@ body {
   padding-bottom: 20px;
   font-size: 16px;
   font-family: 'Halant', serif;
+  background-color: #E6EBE0;
 }
 
 section {
   padding-top: 50px;
+  margin-top: -50px;
+  -webkit-background-clip: content-box;
+  background-clip: content-box;
 }
 
 .navbar-brand {
     font-family: "Kaushan Script","Helvetica Neue",Helvetica,Arial,cursive;
-    color: #fed136!important;
+    color: dodgerblue!important;
 }
 
 .navbar-inverse .nav li a {
     text-transform: uppercase;
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 12px;
-    /*font-weight: 300;
-    letter-spacing: 1px;*/
     color: #fff;
 }
 
-.navbar-inverse .nav li a:hover,
+.navbar-inverse .nav li a:hover {
+    outline: 0;
+    /*color: dodgerblue;*/
+    /*color: #ED6A5A;*/
+    color: #5CA4A9;
+}
 .navbar-inverse .nav li a:focus {
     outline: 0;
-    color: #fed136;
 }
 
 .navbar-inverse .navbar-nav>.active>a {
@@ -42,8 +48,15 @@ section {
     background-color: #fec503;
 }
 
+.navbar-inverse {
+  /*background-color: #1d2120;*/
+  background-color: #46494C;
+}
+
 .jumbotron {
   text-align: center;
+  background-color: #bcd5d1;
+  
 }
 
 @media screen and (min-width: 500px) and (max-width: 767px) {
@@ -61,7 +74,8 @@ section {
   width: 100%;
   /* Set the fixed height of the footer here */
   height: 60px;
-  background-color: #f5f5f5;
+  /*background-color: #f5f5f5;*/
+  background-color: #46494C;
 }
 
 html {
@@ -72,3 +86,37 @@ body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
 }
+
+.back-to-top {
+  position: fixed;
+	opacity: 0;
+	visibility: hidden;
+  z-index: 99999999;
+  right: 30px;
+	bottom: 30px;
+  -webkit-transition: all 0.5s ease-in-out;
+	-moz-transition: all 0.5s ease-in-out;
+	-ms-transition: all 0.5s ease-in-out;
+	-o-transition: all 0.5s ease-in-out;
+	transition: all 0.5s ease-in-out;
+}
+
+.back-to-top.show {
+  visibility:visible;
+  cursor:pointer;
+	opacity: 1.0;
+}
+
+#my-soon-counter {background-color:#db4b3e;background-color:rgba(219,75,62,0);}
+#my-soon-counter .soon-reflection {background-color:#db4b3e;background-image:linear-gradient(#db4b3e 25%,rgba(219,75,62,0));}
+#my-soon-counter {background-position:top;}
+#my-soon-counter {color:#030303;color:rgba(3,3,3,0.25);}
+#my-soon-counter {font-family:"Oswald",sans-serif;font-weight:normal;font-style:normal;font-size: 36px;}
+
+#venue-map {
+  margin: 0;
+  padding: 0;
+  height: 600px;
+}
+
+#success_message{ display: none;}
